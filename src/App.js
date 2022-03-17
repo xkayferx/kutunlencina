@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import  Menu  from './components/Navbar.js';
+import ItemList from './ItemListContainer.js';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <Menu />
+
+        <ItemList />
+
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
