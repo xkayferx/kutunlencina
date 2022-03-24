@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import ListTitle from './components/ItemListTitle.js';
-import Counter from './components/ItemCount.js';
+import { ItemList } from './components/ItemList.js';
 
 const greeting = {
 
@@ -21,7 +21,7 @@ const noproduct = {
 
 };
 
-const ItemList = () => {
+const ItemListContainer = () => {
 
     return (
     
@@ -35,21 +35,7 @@ const ItemList = () => {
 
             <div>
 
-                <Counter 
-                
-                    stock={noproduct.nostock}
-                
-                />
-
-            </div>
-
-            <div>
-
-                <Counter 
-                
-                    stock={product.stock}
-                
-                />
+                <ItemList />
 
             </div>
         
@@ -58,6 +44,6 @@ const ItemList = () => {
     );
 };
 
-export default ItemList;
+export default ItemListContainer;
 
 
