@@ -3,7 +3,7 @@ import Counter from './components/ItemCount.js';
 import { Card } from 'react-bootstrap';
 
 
-export const Producto = ({ img, nombre, precio, stock, id }) => {
+export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
 
     return (
 

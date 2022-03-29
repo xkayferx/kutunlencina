@@ -1,5 +1,5 @@
 import React from "react";
-import Producto from "./Item.js";
+import ProductoShowcase from "./Item.js";
 import productsData from  "./productosArtesanales";
 
 export const ItemList = () => {
@@ -9,7 +9,7 @@ export const ItemList = () => {
         
         productsData.map((item) => (
 
-            <Producto 
+            <ProductoShowcase 
             
                 img={item.img}
 
