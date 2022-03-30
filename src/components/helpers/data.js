@@ -1,4 +1,4 @@
-const productsData=[
+export const productsData=[
     {id: "1", nombre:"Amarila", tipo:"producto", categoria:"mandalas", precio: 600, img:"../media/amarilla.jpeg"},
     {id: "2", nombre:"Colores", tipo:"producto", categoria:"unicos", precio: 650, img:"../media/portavelaColores.jpeg"},
     {id: "3", nombre:"Olla de Barro Lisa", tipo:"producto", categoria:"vajillas", precio: 2500, img:"../media/olla de barro lisa.jpg"},

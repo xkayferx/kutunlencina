@@ -1,6 +1,7 @@
 import React from 'react';
-import Counter from './components/ItemCount.js';
+import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
+import { Button } from 'bootstrap';
 
 
 export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
