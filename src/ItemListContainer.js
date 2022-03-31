@@ -9,18 +9,6 @@ const greeting = {
 
 };
 
-const product = {
-
-    stock: 15
-
-};
-
-const noproduct = {
-
-    nostock: 0
-
-};
-
 const ItemListContainer = () => {
 
     return (

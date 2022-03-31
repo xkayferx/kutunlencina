@@ -2,6 +2,7 @@ import React from 'react';
 import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
 import { Button } from 'bootstrap';
+import { Link } from 'react-router-dom';
 
 
 export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
@@ -34,7 +35,8 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
         
                 </Card.Text>
         
-                <Button variant="primary">Go somewhere</Button>
+                <Link to="/item/:id" > <Button variant="primary">Detalles</Button> </Link>
+                
         
             </Card.Body>
         

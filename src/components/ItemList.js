@@ -34,8 +34,10 @@ export const ItemList = () => {
 
                 (result) => {
 
+                    console.log(result)
+
                     productsData.map((item) => (
-            
+
                             <ProductoShowcase 
                             
                                 img={item.img}
@@ -53,18 +55,14 @@ export const ItemList = () => {
 
                 },
 
-                (err) => {
+                (fail) => {
 
-                    console.error(err);
+                    console.error(fail);
 
                 }
 
             )
         }
 
-    return (
-
-        promiseOne()
-
-    )
+    return promiseOne();
 }
