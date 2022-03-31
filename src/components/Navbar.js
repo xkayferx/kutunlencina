@@ -9,30 +9,30 @@ const Menu = () => {
 
     return (
     
-        <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" variant="dark">
     
-            <Container>
+        <Container>
     
-                <Navbar.Brand href="/">Kutun</Navbar.Brand>
+            <Navbar.Brand href="/">Kutun</Navbar.Brand>
     
-                <Nav className="me-auto">
+            <Nav className="me-auto">
+    
+                <Link to="/">Inicio</Link>
+    
+                <Link to="/category/mandalas">Mandalas</Link>
+    
+                <Link to="/category/vajillas">Vajillas</Link>
+    
+                <Link to="/category/unicos">Unicos</Link>
+    
+                <Cart />
                 
-                    <Link to="/" >Inicio</Link>
-
-                    <Link to="/category/:id" >Categoria1</Link>
-
-                    <Link to="/category/:id" >Categoria2</Link>
-
-                    <Link to="/category/:id" >Categoria3</Link>
-
-                </Nav>
-        
-            </Container>
+            </Nav>
     
-        </Navbar>
+        </Container>
     
+    </Navbar>
     );
-
 };
 
 export default Menu;

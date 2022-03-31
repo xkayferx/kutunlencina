@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import ListTitle from './components/ItemListTitle.js';
 import { ItemList } from './components/ItemList.js';
+import { useParams } from 'react-router-dom';
 
 const greeting = {
 
@@ -9,8 +10,11 @@ const greeting = {
 
 };
 
-const ItemListContainer = () => {
 
+const ItemListContainer = () => {
+    
+    const params = useParams();
+    
     return (
     
         <Container>
