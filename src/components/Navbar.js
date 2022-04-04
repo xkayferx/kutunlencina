@@ -3,7 +3,7 @@ import Cart from './CartWidget.js';
 import { Navbar } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
 import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap'
 
 const Menu = () => {
 
@@ -17,13 +17,13 @@ const Menu = () => {
     
             <Nav className="me-auto">
     
-                <Link to="/">Inicio</Link>
+                <LinkContainer to="/">Inicio</LinkContainer>
     
-                <Link to="/category/mandalas">Mandalas</Link>
+                <LinkContainer to="/category/mandalas">Mandalas</LinkContainer>
     
-                <Link to="/category/vajillas">Vajillas</Link>
+                <LinkContainer to="/category/vajillas">Vajillas</LinkContainer>
     
-                <Link to="/category/unicos">Unicos</Link>
+                <LinkContainer to="/category/unicos">Unicos</LinkContainer>
     
                 <Cart />
                 

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import ListTitle from './components/ItemListTitle.js';
-import { ItemList } from './components/ItemList.js';
-import { useParams } from 'react-router-dom';
+import  ItemList  from './components/ItemList.js';
+import { promesa } from './components/mocks/FakeApi.js';
 
 const greeting = {
 
@@ -13,7 +13,19 @@ const greeting = {
 
 const ItemListContainer = () => {
     
-    const params = useParams();
+    const [ listaProductos , setListaProductos] = useState([]);
+    
+    useEffect(() => {
+    
+        promesa
+            
+            .then((res) => setListaProductos(res))
+    
+            .catch((error) => console.log(error))
+    
+    },[])
+
+
     
     return (
     
@@ -27,7 +39,7 @@ const ItemListContainer = () => {
 
             <div>
 
-                <ItemList />
+                <ItemList listaProductos={ listaProductos } />
 
             </div>
         
@@ -37,5 +49,3 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-
-

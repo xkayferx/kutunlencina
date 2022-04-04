@@ -1,68 +1,37 @@
-import React, { useState } from "react";
+import React from "react";
 import { ProductoShowcase } from "./ItemShow.js";
-import { productsData } from  "./helpers/data.js";
 
-export const ItemList = () => {
+
+const ItemList = ({listaProductos}) => {
+
+    return(
     
-    const [ tiempo , setTiempo] = useState(0);
+        <div>
     
-    function promiseOne (){
+            {listaProductos.map((item) => 
             
+                <ProductoShowcase
             
-            const promesa = new Promise ((resolve, reject) => {
+                    img={item.img}
+            
+                    nombre={item.nombre}
+            
+                    precio={item.precio}
+            
+                    stock={item.stock}
+            
+                    id={item.id}
                 
-
-                setTimeout(function () {
-        
-                    setTiempo(tiempo + 1);
-        
-                }, 2000);
-        
-                if (tiempo > 0) {
-
-                    resolve ('Funciona')
-        
-                } else {
-        
-                    reject ('hay un error');
-        
-                }
-        
-            });
-
-            promesa.then(
-
-                (result) => {
-
-                    console.log(result)
-
-                    productsData.map((item) => (
-
-                            <ProductoShowcase 
-                            
-                                img={item.img}
+                />
                 
-                                nombre={item.nombre}
-                
-                                precio={item.precio}
-                
-                                stock={item.stock}
-                
-                                id={item.id}
-                
-                            />
-                        ))
+                )}
+    
+        </div>
+    
+    );
 
-                },
-
-                (fail) => {
-
-                    console.error(fail);
-
-                }
-
-            )
-        }
-
-    return promiseOne();
 }
+
+
+
+export default ItemList;

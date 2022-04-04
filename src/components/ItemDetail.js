@@ -4,8 +4,9 @@ import { Card } from 'react-bootstrap';
 import { Button } from 'bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
 
+const ItemDetail = ({productsData}) => {
 
-export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
+    const {img, nombre, precio, stock, id} = productsData;
 
     return (
 
@@ -20,6 +21,12 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
                 <Card.Text>
         
                     <h3>{nombre}</h3>
+
+                    <Card.Text>
+
+                        <p>Coming Soon!!</p>
+
+                    </Card.Text>
 
                     <h2>{precio}</h2>
         
@@ -42,6 +49,8 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
         
         </Card>
 
-    );
+    )
 
-};
+}
+
+export default ItemDetail;
