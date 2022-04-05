@@ -1,5 +1,5 @@
 import React from 'react';
-import {productsData} from './components/helpers/data.js';
+import {productsData} from '../helpers/data.js';
 
 export const promesa = new Promise ((resolve, reject) => {
                     

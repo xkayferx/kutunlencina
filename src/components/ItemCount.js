@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-
+import { Button } from 'bootstrap';
 
 
 const Counter = ( { stock } ) => {
@@ -37,19 +37,19 @@ const Counter = ( { stock } ) => {
             
             <div className="d-flex justify-content-center" >
 
-                <button onClick={() => click('restar') }>
+                <Button variant="outline-danger" onClick={() => click('restar') }>
 
                     -
 
-                </button>
+                </Button>
             
                 <h2> {contador} </h2>
 
-                <button onClick={() => click('sumar', {stock}) }>
+                <Button variant="outline-primary" onClick={() => click('sumar', {stock}) }>
 
                     +
 
-                </button>
+                </Button>
 
 
             </div>

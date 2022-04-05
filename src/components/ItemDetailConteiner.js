@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { promesa } from './components/mocks/FakeApi.js';
+import { promesa } from './mocks/FakeApi.js';
 
 
 export const ItemDetailConteiner = () => {

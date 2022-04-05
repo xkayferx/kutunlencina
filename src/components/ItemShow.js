@@ -1,5 +1,4 @@
 import React from 'react';
-import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
 import { Button } from 'bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
@@ -27,11 +26,7 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
 
                 <Card.Text>
         
-                    <Counter 
-                    
-                    stock={stock}
-                    
-                    />
+                    <p>En stock :{stock}</p>
         
                 </Card.Text>
         
