@@ -1,8 +1,9 @@
 import React from 'react';
 import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
-import { Button } from 'bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 const ItemDetail = ({productsData}) => {
 
@@ -16,20 +17,18 @@ const ItemDetail = ({productsData}) => {
         
             <Card.Body>
         
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{nombre}</Card.Title>
         
                 <Card.Text>
         
-                    <h3>{nombre}</h3>
+                    {precio}
 
-                    <Card.Text>
+                </Card.Text>
+                
+                <Card.Text>
 
-                        <p>Coming Soon!!</p>
+                    Coming Soon!!
 
-                    </Card.Text>
-
-                    <h2>{precio}</h2>
-        
                 </Card.Text>
 
                 <Card.Text>
@@ -42,7 +41,7 @@ const ItemDetail = ({productsData}) => {
         
                 </Card.Text>
         
-                <LinkContainer to="/item/:id" > <Button variant="primary">Detalles</Button> </LinkContainer>
+                <Link to="/item/:id" > <Button variant="primary">Detalles</Button> </Link>
                 
         
             </Card.Body>

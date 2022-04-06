@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { Button } from 'bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
@@ -14,23 +14,21 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
         
             <Card.Body>
         
-                <Card.Title>Card Title</Card.Title>
-        
+                <Card.Title>{nombre}</Card.Title>
+
                 <Card.Text>
         
-                    <h3>{nombre}</h3>
+                    {precio}
 
-                    <h2>{precio}</h2>
-        
                 </Card.Text>
 
                 <Card.Text>
         
-                    <p>En stock :{stock}</p>
+                    En stock :{stock}
         
                 </Card.Text>
         
-                <LinkContainer to="/item/:id" > <Button variant="primary">Detalles</Button> </LinkContainer>
+                <Link to="/item/:id" > <Button variant="primary">Detalles</Button> </Link>
                 
         
             </Card.Body>

@@ -1,12 +1,16 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import { ProductoShowcase } from "./ItemShow.js";
+import { Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
+
 
 
 const ItemList = ({listaProductos}) => {
 
     return(
     
-        <div>
+        <Container>
     
             {listaProductos.map((item) => 
             
@@ -20,13 +24,13 @@ const ItemList = ({listaProductos}) => {
             
                     stock={item.stock}
             
-                    id={item.id}
+                    key={item.id}
                 
                 />
                 
-                )}
+            )}
     
-        </div>
+        </Container>
     
     );
 
