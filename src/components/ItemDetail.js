@@ -9,6 +9,8 @@ const ItemDetail = ({productsData}) => {
 
     const {img, nombre, precio, stock, id} = productsData;
 
+    
+
     return (
 
         <Card style={{ width: '18rem' }} key={id}>
