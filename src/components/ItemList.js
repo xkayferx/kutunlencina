@@ -1,8 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import { ProductoShowcase } from "./ItemShow.js";
-import { Col } from "react-bootstrap";
-import { Row } from "react-bootstrap";
+
 
 
 

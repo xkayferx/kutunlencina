@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
@@ -9,7 +9,7 @@ const ItemDetail = ({productsData}) => {
 
     const {img, nombre, precio, stock, id} = productsData;
 
-    
+    const { cart } = useContext(CartContext);
 
     return (
 
