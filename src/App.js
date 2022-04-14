@@ -9,10 +9,15 @@ import { useState } from 'react';
 function App() {
   
   const [cart, setCart] = useState([])
+
+  const addItem = (item) => {
+
+    setCart ( [...cart, item] )
+  }
   
   return (
 
-    <CartContext.Provider value={ {cart} }>
+    <CartContext.Provider value={ {cart, addItem} }>
 
       <BrowserRouter>
     

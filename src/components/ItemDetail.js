@@ -54,4 +54,5 @@ const ItemDetail = ({productsData}) => {
 
 }
 
+
 export default ItemDetail;
