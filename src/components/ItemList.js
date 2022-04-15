@@ -23,6 +23,8 @@ const ItemList = ({listaProductos}) => {
                     precio={item.precio}
             
                     stock={item.stock}
+
+                    id={item.id}
             
                     key={item.id}
                 

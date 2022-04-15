@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -28,7 +27,7 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
         
                 </Card.Text>
         
-                <Link to="/item/:id" > <Button variant="primary">Detalles</Button> </Link>
+                <Link to= {`/item/${id}`} > Detalles </Link>
                 
         
             </Card.Body>

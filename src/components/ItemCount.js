@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Container } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 
-const Counter = ( { stock } ) => {
+const Counter = ( { stock, cantidad, setCantidad, onAdd } ) => {
 
-    const[ contador , setContador] = useState(0);
+    
 
     const click = (tipo, {stock} ) =>{
 
         if (tipo === 'sumar') {
     
-            if (contador < stock){
+            if (cantidad < stock){
 
-                setContador(contador + 1);
+                setCantidad(cantidad + 1);
             
             }
     
     
         } else {
     
-            if (contador > 0)
+            if (cantidad > 0)
     
-            setContador(contador - 1);
+            setCantidad(cantidad - 1);
         
         };
 
@@ -33,7 +33,7 @@ const Counter = ( { stock } ) => {
         <Container>
 
             
-            <h1>Contador</h1>
+            <h1>Cantidad</h1>
             
             <div className="d-flex justify-content-center" >
 
@@ -43,7 +43,7 @@ const Counter = ( { stock } ) => {
 
                 </Button>
             
-                <h2> {contador} </h2>
+                <h2> {cantidad} </h2>
 
                 <Button variant="outline-primary" onClick={() => click('sumar', {stock}) }>
 
@@ -51,8 +51,9 @@ const Counter = ( { stock } ) => {
 
                 </Button>
 
-
             </div>
+
+            <Button onClick={onAdd}> Agregar al carrito </Button>
 
             <h5> En stock: {stock} </h5>
             

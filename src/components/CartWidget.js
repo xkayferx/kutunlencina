@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import CartLogo from './media/carrito.png'
 import { Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
 const Cart = () => {
 
+    const {cartQuantity} = useContext(CartContext)
+
     return (
         
-        <Navbar.Brand href="#home">
+        <Link to={"/cart"}>
+        
+            <Navbar.Brand href="#home">
 
-            <img
+                <img
 
                 alt=""
                 
@@ -21,10 +27,14 @@ const Cart = () => {
                 className="d-inline-block align-top"
             
             />
-            
-            Carrito
+
+                <span>{cartQuantity()}</span>
         
-        </Navbar.Brand>
+            </Navbar.Brand>
+
+        </Link>
+
+        
     
 
     );

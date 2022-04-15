@@ -3,21 +3,16 @@ import  Menu  from './components/Navbar.js';
 import ItemListContainer from './ItemListContainer.js';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ItemDetailConteiner } from './components/ItemDetailConteiner.js';
-import { CartContext } from './components/CartContext';
-import { useState } from 'react';
+import { CartProvider } from './components/CartContext';
+import Cart from './components/cart';
 
 function App() {
   
-  const [cart, setCart] = useState([])
-
-  const addItem = (item) => {
-
-    setCart ( [...cart, item] )
-  }
+  
   
   return (
 
-    <CartContext.Provider value={ {cart, addItem} }>
+    <CartProvider>
 
       <BrowserRouter>
     
@@ -31,15 +26,17 @@ function App() {
 
             <Route path="/category/:categoryid" element={ <ItemListContainer /> } />
 
-            <Route path="/item/:id" element={ <ItemDetailConteiner /> } />
+            <Route path="/item/:itemId" element={ <ItemDetailConteiner /> } />
+
+            <Route path="/cart" element={ <Cart /> } />
 
           </Routes>
     
         </div>
     
       </BrowserRouter>
-    
-    </CartContext.Provider>
+  
+    </CartProvider>
   
   );
 

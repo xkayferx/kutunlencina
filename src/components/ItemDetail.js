@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { CartContext } from './CartContext.js';
 import { Link } from 'react-router-dom';
 
 
@@ -9,7 +9,29 @@ const ItemDetail = ({productsData}) => {
 
     const {img, nombre, precio, stock, id} = productsData;
 
-    const { cart } = useContext(CartContext);
+    const { addItem, isInCart } = useContext(CartContext)
+
+    const[ cantidad , setCantidad] = useState(0);
+    
+    const agregarAlCarito = (cantidad) => {
+
+        const itemToAdd = {
+
+            id,
+
+            img,
+            
+            nombre,
+            
+            precio,
+
+            cantidad
+
+        }
+
+        addItem(itemToAdd)
+
+    }
 
     return (
 
@@ -34,16 +56,31 @@ const ItemDetail = ({productsData}) => {
                 </Card.Text>
 
                 <Card.Text>
+
+                    {
+
+                        !isInCart(id)
+
+                            ?<Counter 
+                    
+                                stock={stock}
+
+                                cantidad={cantidad}
+
+                                setCantidad={setCantidad}
+
+                                onAdd={agregarAlCarito}
+                    
+                            />
+                        
+                            :<Link to="/cart" className='btn btn-success'> Terminar mi compra </Link>
+
+                    }
         
-                    <Counter 
                     
-                    stock={stock}
-                    
-                    />
         
                 </Card.Text>
-        
-                <Link to="/item/:id" > <Button variant="primary">Detalles</Button> </Link>
+
                 
         
             </Card.Body>
