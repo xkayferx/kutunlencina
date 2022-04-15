@@ -8,7 +8,7 @@ export const ItemDetailConteiner = () => {
 
     const [ itemDetail , setItemDetail] = useState({});
 
-    const { itemId } = useParams
+    const { itemId } = useParams()
 
     console.log(itemId)
 
@@ -29,7 +29,7 @@ export const ItemDetailConteiner = () => {
     
     <div>
 
-        <ItemDetail itemDetail={ itemDetail } />
+        <ItemDetail productsData={ itemDetail } />
 
     </div> 
     
