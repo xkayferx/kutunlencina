@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Counter from './ItemCount.js';
 import { Card } from 'react-bootstrap';
 import { CartContext } from './CartContext.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ItemDetail = ({productsData}) => {
@@ -13,7 +13,7 @@ const ItemDetail = ({productsData}) => {
 
     const[ cantidad , setCantidad] = useState(1);
     
-    const agregarAlCarito = (cantidad) => {
+    const agregarAlCarito = () => {
 
         const itemToAdd = {
 
@@ -32,6 +32,14 @@ const ItemDetail = ({productsData}) => {
         addItem(itemToAdd)
 
         console.log(itemToAdd)
+
+    }
+
+    const navigate = useNavigate()
+
+    const handleNavigate = () => {
+
+        navigate(-1)
 
     }
 
@@ -79,7 +87,7 @@ const ItemDetail = ({productsData}) => {
 
                     }
         
-                    
+                    <button onClick={handleNavigate}>Volver</button>
         
                 </Card.Text>
 
