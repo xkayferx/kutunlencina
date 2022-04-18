@@ -11,7 +11,7 @@ const ItemDetail = ({productsData}) => {
 
     const { addItem, isInCart } = useContext(CartContext)
 
-    const[ cantidad , setCantidad] = useState(0);
+    const[ cantidad , setCantidad] = useState(1);
     
     const agregarAlCarito = (cantidad) => {
 
@@ -30,6 +30,8 @@ const ItemDetail = ({productsData}) => {
         }
 
         addItem(itemToAdd)
+
+        console.log(itemToAdd)
 
     }
 

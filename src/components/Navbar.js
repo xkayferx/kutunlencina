@@ -1,5 +1,5 @@
 import React from 'react';
-import Cart from './CartWidget.js';
+import CartWidget from './CartWidget.js';
 import { Link } from 'react-router-dom';
 
 
@@ -21,7 +21,7 @@ const Menu = () => {
 
                 <Link to="/category/unicos" className='header-link'> Unicos </Link>
 
-                <Cart/>
+                <CartWidget/>
 
             </nav>
 

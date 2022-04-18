@@ -1,11 +1,11 @@
-import { Button } from "bootstrap";
+
 import React, { useContext } from "react";
-import { Container } from "react-bootstrap";
+
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
 
-    const {cart, cartTotal, clearCart, removeItem} = useContext(CartContext)
+    const {cart, cartTotal, clearCart, removeItem,} = useContext(CartContext)
 
     return (
 
@@ -13,35 +13,35 @@ const Cart = () => {
 
             <h1>Tu Compra</h1>
 
-            <Container>
+            <div>
 
-            {
+                {
 
-                cart.map((item) => (
+                    cart.map((item) => (
 
-                    <div key={item.id}>
+                        <div key={item.id}>
 
-                        <h4>{item.nombre}</h4>
+                            <h4>{item.nombre}</h4>
 
-                        <p> cantidad : {item.cantidad} </p>
+                            <p> cantidad : {item.cantidad} </p>
 
-                        <p> precio: ${item.precio * item.cantidad} </p>
+                            <p> precio: ${item.precio * item.cantidad} </p>
 
-                        <Button variant="outline-danger" onClick={() => removeItem(item.id) } ></Button>
+                            <button onClick={() => removeItem(item.id) } > X </button>
 
-                    </div>
+                        </div>
 
-                ))
+                    ))
 
-            }
+                }
 
-            <hr/>
+                <hr/>
 
-            <h3>TOTAL : ${cartTotal()}</h3>
+                <h3>TOTAL : ${cartTotal()}</h3>
 
-            <Button onClick={clearCart}> Vaciar el carrito </Button>
+                <button onClick={clearCart}> Vaciar el carrito </button>
 
-            </Container>
+            </div>
 
         </div>
 

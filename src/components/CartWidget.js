@@ -4,7 +4,7 @@ import { Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import { CartContext } from './CartContext';
 
-const Cart = () => {
+const CartWidget = () => {
 
     const {cartQuantity} = useContext(CartContext)
 
@@ -12,7 +12,7 @@ const Cart = () => {
         
         <Link to={"/cart"}>
         
-            <Navbar.Brand href="#home">
+            <Navbar.Brand>
 
                 <img
 
@@ -40,4 +40,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default CartWidget;
