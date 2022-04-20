@@ -1,10 +1,10 @@
 export const productsData=[
     {id: 1, nombre:"Amarila", tipo:"producto", categoria:"mandalas", precio: 600, img:"../media/amarilla.jpeg", stock: 20, desc:"Lorem Ipsum"},
     {id: 2, nombre:"Colores", tipo:"producto", categoria:"unicos", precio: 650, img:"../media/portavelaColores.jpeg", stock: 20, desc:"Lorem Ipsum"},
-    {id: 3, nombre:"Olla de Barro Lisa", tipo:"producto", categoria:"vajillas", precio: 2500, img:"../media/olla de barro lisa.jpg", stock: 20, desc:"Lorem Ipsum"},
+    {id: 3, nombre:"Olla de Barro Lisa", tipo:"producto", categoria:"vajillas", precio: 2500, img:"../media/olladebarrolisa.jpg", stock: 20, desc:"Lorem Ipsum"},
     {id: 4, nombre:"Bella", tipo:"producto", categoria:"mandalas", precio: 600, img:"../media/bella.jpeg", stock: 20, desc:"Lorem Ipsum"},
     {id: 5, nombre:"Cuadrado", tipo:"producto", categoria:"unicos", precio: 650, img:"../media/portavelaCuadrado.jpeg", stock: 20, desc:"Lorem Ipsum"},
-    {id: 6, nombre:"Bandejas Floreadas", tipo:"producto", categoria:"vajillas", precio: 2300, img:"../media/bandejas floreadas.jpg", stock: 20, desc:"Lorem Ipsum"},
+    {id: 6, nombre:"Bandejas Floreadas", tipo:"producto", categoria:"vajillas", precio: 2300, img:"../media/bandejasfloreadas.jpg", stock: 20, desc:"Lorem Ipsum"},
     {id: 7, nombre:"Celeste", tipo:"producto", categoria:"mandalas", precio: 600, img:"../media/Celeste.jpeg", stock: 20, desc:"Lorem Ipsum"},
     {id: 8, nombre:"Coral Chico", tipo:"producto", categoria:"unicos", precio: 600, img:"../media/portavelasCoralChico.jpeg", stock: 20, desc:"Lorem Ipsum"},
     {id: 9, nombre:"Platos Floreados", tipo:"producto", categoria:"vajillas", precio: 700, img:"../media/platos.jpg", stock: 20, desc:"Lorem Ipsum"},

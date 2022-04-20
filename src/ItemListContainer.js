@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import ListTitle from './components/ItemListTitle.js';
 import  ItemList  from './components/ItemList.js';
-import { promesa } from './components/mocks/FakeApi.js';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from './firebase/config.js';
+import { useParams } from 'react-router-dom';
 
 
 const greeting = {
@@ -11,20 +13,29 @@ const greeting = {
 
 };
 
-
 const ItemListContainer = () => {
-
+    
     const [ listaProductos , setListaProductos] = useState([]);
+    
+    const { categoryId } = useParams()
     
     useEffect(() => {
     
-        promesa
-            
-            .then((res) => setListaProductos(res))
-    
-            .catch((error) => console.log(error))
-    
-    },[])
+        const productosRef = collection(db, "productos")
+
+        const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+
+        getDocs(q)
+
+            .then(resp => {
+
+                const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+
+                setListaProductos(items)
+
+            })
+
+    },[categoryId])
 
 
     
