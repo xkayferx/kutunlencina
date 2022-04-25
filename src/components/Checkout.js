@@ -5,29 +5,30 @@ const Checkout = () => {
 
     const { cart, cartTotal } = useContext(CartContext)
 
-    const [nombre, setNombre] = useState('')
+    const [values, setValues] = useState({
 
-    const [email, setEmail] = useState('')
+        nombre: '',
 
-    const [tel, setTel] = useState('')
+        email: '',
 
-    const handleNombre = (e) => {
+        tel: ''
 
-        setNombre(e.target.value)
+    })
+
+    
+
+    const handleInputChange = (e) => {
+
+        setValues({
+
+            ...values,
+
+            [e.target.name]:e.target.value
+
+        })
 
     }
-
-    const handleEmail = (e) => {
-
-        setEmail(e.target.value)
-
-    }
-
-    const handleTel = (e) => {
-
-        setTel(e.target.value)
-
-    }
+    
     
     const handleSubmit = (e) =>{
 
@@ -39,15 +40,7 @@ const Checkout = () => {
 
             total: cartTotal(),
 
-            comprador: {
-
-                nombre: nombre,
-
-                email: email,
-
-                tel: tel
-
-            }
+            comprador: {...values}
 
         }
 
@@ -73,9 +66,11 @@ const Checkout = () => {
 
                     placeholder = 'Tu Nombre'
 
-                    value={nombre}
+                    value={values.nombre}
 
-                    onChange={ handleNombre }
+                    name='nombre'
+
+                    onChange={ handleInputChange }
                 
                 />
 
@@ -87,9 +82,11 @@ const Checkout = () => {
 
                 placeholder = 'Tu E-mail'
 
-                value={email}
+                value={values.email}
 
-                onChange={ handleEmail }
+                name='email'
+
+                onChange={ handleInputChange }
             
             />
 
@@ -101,9 +98,11 @@ const Checkout = () => {
 
                 placeholder = 'Tu Telefono'
 
-                value={tel}
+                value={values.tel}
 
-                onChange={ handleTel }
+                name='tel'
+
+                onChange={ handleInputChange }
             
             />
 
