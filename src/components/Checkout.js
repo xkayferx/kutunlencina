@@ -1,9 +1,13 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { db } from "../firebase/config";
 
 const Checkout = () => {
 
-    const { cart, cartTotal } = useContext(CartContext)
+    const { cart, cartTotal, clearCart } = useContext(CartContext)
+
+    const [orderId, setOrderId] = useState(null)
 
     const [values, setValues] = useState({
 
@@ -40,13 +44,51 @@ const Checkout = () => {
 
             total: cartTotal(),
 
-            comprador: {...values}
+            comprador: {...values},
+
+            fyh: Timestamp.fromDate(new Date())
 
         }
 
+        const ordersRef = collection(db, 'orders')
+
+        addDoc(ordersRef, orden)
+
+            .then((doc) => {
+
+                setOrderId(doc.id)
+                
+                clearCart()
+
+            })
+
     }
 
+    if (orderId) {
 
+        return (
+
+            <div className="container">
+
+                <h2> Tu orden ah sido registrada Existosamente</h2>
+
+                <hr/>
+
+                <h4> Guarda tu numero de orden : {orderId}</h4>
+
+                <Link to="/" > Volver</Link>
+
+            </div>
+
+        )
+
+    }
+
+    if (cart.length === 0) {
+
+        return <Navigate to ="/" />
+
+    }
 
     return (
 
