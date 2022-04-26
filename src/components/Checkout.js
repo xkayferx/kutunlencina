@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 const Checkout = () => {
@@ -51,6 +51,33 @@ const Checkout = () => {
         }
 
         const ordersRef = collection(db, 'orders')
+
+        cart.forEach((item) => {
+
+            const docRef = doc(db, 'producto', item.id )
+
+            getDoc(docRef)
+
+                .then((doc) => {
+
+                    if (doc.data().stock >= item.contidad) {
+
+                        updateDoc(docRef, {
+    
+                            stock: doc.data().stock - item.cantidad
+                            
+                        })
+
+                    }else{
+
+                        alert('no hay stock este item')
+
+                    }
+
+
+                })
+            
+        });
 
         addDoc(ordersRef, orden)
 
