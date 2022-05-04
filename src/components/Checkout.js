@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
-import { getDocs, query, where, writeBatch, collection, addDoc, Timestamp, updateDoc, getDoc, doc, documentId } from "firebase/firestore";
+import { collection, addDoc, Timestamp, updateDoc, getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase/config";
 import { Link, Navigate } from "react-router-dom";
-
 const Checkout = () => {
 
     const { cart, cartTotal, clearCart } = useContext(CartContext)
@@ -53,41 +52,34 @@ const Checkout = () => {
 
         const ordersRef = collection(db, 'orders')
 
-        const batch = writeBatch(db)
+        cart.forEach((item) => {
 
-        const productosRef = collection(db, 'productos')
+            const docRef = doc(db, 'producto', item.id )
 
-        const q = query(productosRef, where(documentId(),'in', cart.map((item) => item.id)))
+            getDoc(docRef)
 
-        const productos = getDocs(q)
+                .then((doc) => {
 
-        const outOfStock = []
+                    if (doc.data().stock >= item.contidad) {
 
-        productos.docs.forEach((doc) =>{
+                        updateDoc(docRef, {
+    
+                            stock: doc.data().stock - item.cantidad
+                            
+                        })
 
-            const itemInCart = cart.find((item) => item.id === doc.id)
+                    }else{
 
-            if (doc.data().stock >= itemInCart.cantidad) {
+                        alert('no hay stock este item')
 
-                batch.update(doc.ref, {
+                    }
 
-                    stock: doc.data().stock - itemInCart.cantidad
 
                 })
-
-            } else {
-
-                outOfStock.push(itemInCart)
-
-            }
-
-        })
-
-        if (outOfStock.lenght === 0) {
-
-            batch.commit()
             
-            addDoc(ordersRef, orden)
+        });
+
+        addDoc(ordersRef, orden)
 
             .then((doc) => {
 
@@ -96,14 +88,6 @@ const Checkout = () => {
                 clearCart()
 
             })
-
-        } else {
-
-            <h2 className="marked" > hay Items sin Stock </h2>
-
-        }
-
-        
 
     }
 
@@ -119,7 +103,7 @@ const Checkout = () => {
 
                 <h4> Guarda tu numero de orden : {orderId}</h4>
 
-                <Link to="/" className="btn btn-success" > Volver</Link>
+                <Link to="/" > Volver</Link>
 
             </div>
 
@@ -191,7 +175,7 @@ const Checkout = () => {
             
             />
 
-            <button type="submit" className="btn btn-primary" > Enviar </button>
+            <button type="submit"> Enviar </button>
 
             </form>
 
