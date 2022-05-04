@@ -18,11 +18,11 @@ const Menu = () => {
 
                     <NavLink to="/" className="underLine marked white links" > Inicio </NavLink>
 
-                    <NavLink to="/categoria/vajillas" className="underLine marked white links" > Vajillas </NavLink>
+                    <NavLink to="/category/vajillas" className="underLine marked white links" > Vajillas </NavLink>
 
-                    <NavLink to="/categoria/mandalas" className="underLine marked white links"> Mandalas </NavLink>
+                    <NavLink to="/category/mandalas" className="underLine marked white links"> Mandalas </NavLink>
 
-                    <NavLink to="/categoria/unicos" className="underLine marked white links" > Unicos </NavLink>
+                    <NavLink to="/category/unicos" className="underLine marked white links" > Unicos </NavLink>
 
                     <CartWidget/>
 

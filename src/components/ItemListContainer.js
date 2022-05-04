@@ -17,13 +17,13 @@ const ItemListContainer = () => {
     
     const [ listaProductos , setListaProductos] = useState([]);
     
-    const { categoriaId } = useParams()
+    const { categoryId } = useParams()
     
     useEffect(() => {
     
         const productosRef = collection(db, "productos")
 
-        const q = categoriaId ? query(productosRef, where('categoria', '==', categoriaId)) : productosRef
+        const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
 
         getDocs(q)
 
@@ -35,7 +35,7 @@ const ItemListContainer = () => {
 
             })
 
-    },[categoriaId])
+    },[categoryId])
 
 
     
