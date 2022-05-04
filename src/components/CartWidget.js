@@ -10,7 +10,7 @@ const CartWidget = () => {
 
     return (
         
-        <Link to={"/cart"}>
+        <Link to={"/cart"} className="underLine marked white links">
         
             <Navbar.Brand>
 
@@ -24,7 +24,7 @@ const CartWidget = () => {
                 
                 height="30"
                 
-                className="d-inline-block align-top"
+                className="d-inline-block"
             
             />
 

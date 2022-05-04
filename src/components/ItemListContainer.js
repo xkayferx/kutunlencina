@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import ListTitle from './components/ItemListTitle.js';
-import  ItemList  from './components/ItemList.js';
+import ListTitle from './ItemListTitle.js';
+import  ItemList  from './ItemList.js';
 import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from './firebase/config.js';
+import { db } from '../firebase/config.js';
 import { useParams } from 'react-router-dom';
 
 
 const greeting = {
 
-    title: 'Bienvenido'
+    title: 'Productos'
 
 };
 
@@ -17,13 +17,13 @@ const ItemListContainer = () => {
     
     const [ listaProductos , setListaProductos] = useState([]);
     
-    const { categoryId } = useParams()
+    const { categoriaId } = useParams()
     
     useEffect(() => {
     
         const productosRef = collection(db, "productos")
 
-        const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+        const q = categoriaId ? query(productosRef, where('categoria', '==', categoriaId)) : productosRef
 
         getDocs(q)
 
@@ -35,7 +35,7 @@ const ItemListContainer = () => {
 
             })
 
-    },[categoryId])
+    },[categoriaId])
 
 
     

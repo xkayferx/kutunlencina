@@ -14,7 +14,7 @@ class ListTitle extends Component {
 
             <div>
 
-                <h2> {this.props.title} </h2>
+                <h1> {this.props.title} </h1>
 
             </div>
 

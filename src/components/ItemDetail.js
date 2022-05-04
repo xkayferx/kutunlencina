@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const ItemDetail = ({productsData}) => {
 
-    const {img, nombre, precio, stock, id} = productsData;
+    const {img, nombre, precio, stock, id ,desc} = productsData;
 
     const { addItem, isInCart } = useContext(CartContext)
 
@@ -45,13 +45,13 @@ const ItemDetail = ({productsData}) => {
 
     return (
 
-        <Card style={{ width: '18rem' }} key={id}>
+        <Card style={{ width: '18rem' }} key={id} className="centerText" >
         
             <Card.Img variant="top" src={img} />
         
             <Card.Body>
         
-                <Card.Title>{nombre}</Card.Title>
+                <Card.Title className='marked' >{nombre}</Card.Title>
         
                 <Card.Text>
         
@@ -61,7 +61,7 @@ const ItemDetail = ({productsData}) => {
                 
                 <Card.Text>
 
-                    Coming Soon!!
+                    {desc}
 
                 </Card.Text>
 
@@ -87,7 +87,7 @@ const ItemDetail = ({productsData}) => {
 
                     }
         
-                    <button onClick={handleNavigate}>Volver</button>
+                    <button onClick={handleNavigate} className="btn btn-secondary" >Volver</button>
         
                 </Card.Text>
 

@@ -7,33 +7,36 @@ export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
 
     return (
 
-        <Card style={{ width: '18rem' }} key={id}>
-        
-            <Card.Img variant="top" src={img} />
-        
-            <Card.Body>
-        
-                <Card.Title>{nombre}</Card.Title>
+        <div className='col' >
 
-                <Card.Text>
-        
-                    {precio}
+            <Card style={{ width: '18rem' }} key={id} className="centerText" >
+            
+                <Card.Img variant="top" src={img} />
+            
+                <Card.Body>
+            
+                    <Card.Title className='marked' >{nombre}</Card.Title>
 
-                </Card.Text>
+                    <Card.Text className='price' >
+            
+                        Precio : ${precio}
 
-                <Card.Text>
-        
-                    En stock :{stock}
-        
-                </Card.Text>
-        
-                <Link to= {`/item/${id}`} > Detalles </Link>
-                
-        
-            </Card.Body>
-        
-        </Card>
+                    </Card.Text>
 
+                    <Card.Text>
+            
+                        En stock :{stock}
+            
+                    </Card.Text>
+            
+                    <Link to= {`/item/${id}`} className="underLine" > Detalles </Link>
+                    
+            
+                </Card.Body>
+            
+            </Card>
+
+        </div>
     );
 
 };

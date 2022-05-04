@@ -16,33 +16,40 @@ const Cart = () => {
 
             <div>
 
+                <ul className="list-group list-group-flush">
+
                 {
 
                     cart.map((item) => (
 
-                        <div className="d-flex" key={item.id}>
+                        <div className="list-group-item d-flex justify-content-center" key={item.id}>
 
-                            <h4>{item.nombre}</h4>
+                            <h4 className="listItem">{item.nombre}</h4>
 
-                            <p> cantidad : {item.cantidad} </p>
+                            <p className="listItem"> cantidad : {item.cantidad} </p>
 
-                            <p> precio: ${item.precio * item.cantidad} </p>
+                            <p className="listItem"> precio: ${item.precio * item.cantidad} </p>
 
-                            <button onClick={() => removeItem(item.id) } > X </button>
+                            <button onClick={() => removeItem(item.id) } className="btn btn-danger" > X </button>
 
                         </div>
 
                     ))
-
+                    
                 }
+
+                </ul>
 
                 <hr/>
 
-                <h3>TOTAL : ${cartTotal()}</h3>
+                <h3 className="d-flex justify-content-center">TOTAL : ${cartTotal()}</h3>
 
-                <button onClick={clearCart}> Vaciar el carrito </button>
+                <div className="d-flex justify-content-center">
 
-                <Link to="/checkout" className="btn btn-success"> Terminar Compra </Link>
+                    <button onClick={clearCart} className="btn btn-outline-danger" > Vaciar el carrito </button>
+
+                    <Link to="/checkout" className="btn btn-outline-success"> Terminar Compra </Link>
+                </div>
 
             </div>
 

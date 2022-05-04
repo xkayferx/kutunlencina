@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "./CartContext";
-import { collection, addDoc, Timestamp, updateDoc, getDoc } from "firebase/firestore";
+import { getDocs, query, where, writeBatch, collection, addDoc, Timestamp, updateDoc, getDoc, doc, documentId } from "firebase/firestore";
 import { db } from "../firebase/config";
+import { Link, Navigate } from "react-router-dom";
 
 const Checkout = () => {
 
@@ -52,34 +53,41 @@ const Checkout = () => {
 
         const ordersRef = collection(db, 'orders')
 
-        cart.forEach((item) => {
+        const batch = writeBatch(db)
 
-            const docRef = doc(db, 'producto', item.id )
+        const productosRef = collection(db, 'productos')
 
-            getDoc(docRef)
+        const q = query(productosRef, where(documentId(),'in', cart.map((item) => item.id)))
 
-                .then((doc) => {
+        const productos = getDocs(q)
 
-                    if (doc.data().stock >= item.contidad) {
+        const outOfStock = []
 
-                        updateDoc(docRef, {
-    
-                            stock: doc.data().stock - item.cantidad
-                            
-                        })
+        productos.docs.forEach((doc) =>{
 
-                    }else{
+            const itemInCart = cart.find((item) => item.id === doc.id)
 
-                        alert('no hay stock este item')
+            if (doc.data().stock >= itemInCart.cantidad) {
 
-                    }
+                batch.update(doc.ref, {
 
+                    stock: doc.data().stock - itemInCart.cantidad
 
                 })
-            
-        });
 
-        addDoc(ordersRef, orden)
+            } else {
+
+                outOfStock.push(itemInCart)
+
+            }
+
+        })
+
+        if (outOfStock.lenght === 0) {
+
+            batch.commit()
+            
+            addDoc(ordersRef, orden)
 
             .then((doc) => {
 
@@ -88,6 +96,14 @@ const Checkout = () => {
                 clearCart()
 
             })
+
+        } else {
+
+            <h2 className="marked" > hay Items sin Stock </h2>
+
+        }
+
+        
 
     }
 
@@ -103,7 +119,7 @@ const Checkout = () => {
 
                 <h4> Guarda tu numero de orden : {orderId}</h4>
 
-                <Link to="/" > Volver</Link>
+                <Link to="/" className="btn btn-success" > Volver</Link>
 
             </div>
 
@@ -175,7 +191,7 @@ const Checkout = () => {
             
             />
 
-            <button type="submit"> Enviar </button>
+            <button type="submit" className="btn btn-primary" > Enviar </button>
 
             </form>
 

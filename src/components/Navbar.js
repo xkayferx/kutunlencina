@@ -1,31 +1,36 @@
 import React from 'react';
 import CartWidget from './CartWidget.js';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 
 const Menu = () => {
 
     return (
     
-        <header className='d-flex header'>
+        <Navbar expand="lg" bg="dark" variant="dark">
 
-            <Link to="/"> <h1>Kutun Ceramica</h1> </Link>
+            <div className='container-fluid'>
 
-            <nav className='header-nav'>
+                <Link to="/" className="underLine marked white"> <h1>Kutun Ceramica</h1> </Link>
 
-                <Link to="/" className='header-link' > Inicio </Link>
+                <Nav className="me-auto">
 
-                <Link to="/category/vajillas" className='header-link'> Vajillas </Link>
+                    <NavLink to="/" className="underLine marked white links" > Inicio </NavLink>
 
-                <Link to="/category/mandalas" className='header-link'> Mandalas </Link>
+                    <NavLink to="/categoria/vajillas" className="underLine marked white links" > Vajillas </NavLink>
 
-                <Link to="/category/unicos" className='header-link'> Unicos </Link>
+                    <NavLink to="/categoria/mandalas" className="underLine marked white links"> Mandalas </NavLink>
 
-                <CartWidget/>
+                    <NavLink to="/categoria/unicos" className="underLine marked white links" > Unicos </NavLink>
 
-            </nav>
+                    <CartWidget/>
 
-        </header>
+                </Nav>
+
+            </div>
+
+        </Navbar>
 
     );
 };

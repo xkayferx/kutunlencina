@@ -1,38 +1,98 @@
-.App {
+*{
+
+  margin: 0;
+
+  border: 0;
+
+  box-sizing: border-box; 
+
+}
+
+a{
+
+  text-decoration: none; 
+
+}
+
+.links{
+
+  margin: 1.5rem;
+
+}
+
+.listItem{
+
+  margin: 1.5rem;
+
+}
+
+/* texto */
+
+.centerText{
+
   text-align: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.underLine{
+
+  text-decoration: none;
+
+  font-weight: bold;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.lineThrough{
+
+  text-decoration: line-through; 
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.marked{
+
+  font-size: 2rem;
+
+  font-weight: bold; 
+
+}
+
+
+/* colores */
+.red{
+
+  color: red;
+
+}
+
+.white{
+
   color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+.black{
+
+  color: black;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Cartas */
+
+.card{
+
+  margin: 1.5rem;
+
+  border: 0.2rem black;
+
+  padding-top: 0.5rem; 
+
 }
+
+.price{
+
+  background-color: lightgrey;
+
+  border: 0.2rem solid lightgrey; 
+
+}
+
