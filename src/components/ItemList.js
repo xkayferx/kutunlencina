@@ -31,6 +31,8 @@ const ItemList = ({listaProductos}) => {
                         key={item.id}
                         
                         desc={item.desc}
+
+                        categoria={item.categoria}
                     />
             
                 )}

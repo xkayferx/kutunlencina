@@ -23,7 +23,9 @@ const ItemListContainer = () => {
     
         const productosRef = collection(db, "productos")
 
-        const q = categoryId ? query(productosRef, where('categoria', '==', categoryId)) : productosRef
+        console.log(categoryId)
+
+        const q = categoryId ? query(productosRef, where('categoria','==',categoryId)) : productosRef
 
         getDocs(q)
 

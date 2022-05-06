@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-export const ProductoShowcase = ({ img, nombre, precio, stock, id }) => {
+export const ProductoShowcase = ({ img, nombre, precio, stock, id, desc, categoria }) => {
 
     return (
 
